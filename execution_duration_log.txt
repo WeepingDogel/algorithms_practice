@@ -1,0 +1,4 @@
+Program src/search/output/linear_search executed on 2024-09-23 19:50:28, Duration: 0.0088 seconds
+Program src/search/output/binary_search executed on 2024-09-23 19:50:36, Duration: 0.0022 seconds
+Program src/search/output/binary_search executed on 2024-09-23 19:51:12, Duration: 0.0015 seconds
+Program src/search/output/linear_search executed on 2024-09-23 19:51:19, Duration: 0.0113 seconds
