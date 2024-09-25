@@ -17,12 +17,3 @@ int linear_search(int low, int high, int target) {
     return guesses;
 }
 
-int main() {
-    int target = 8192000;  // Given number to guess
-
-    // Linear Search
-    int linear_guesses = linear_search(1, 10000000, target);
-    printf("Linear search found the number %d in %d guesses.\n", target, linear_guesses);
-
-    return 0;
-}
