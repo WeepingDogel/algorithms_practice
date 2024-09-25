@@ -13,6 +13,10 @@ This repository is used to store my codes for learning data structures and algor
 │ │ ├── binary_search.c
 │ │ ├── linear_search.c
 │ │ ├── jump_search.c
+│ │ ├── depth_first_search.c
+│ │ ├── breadth_first_search.c
+│ │ ├── graph_utils.c
+│ │ ├── graph_utils.h
 │ │ └── test_search_algorithms.c
 │ ├── sort
 │ │ ├── insertion_sort.c
@@ -178,6 +182,42 @@ This repository is used to store my codes for learning data structures and algor
 
 **Space Complexity**: O(1)
 
+#### Depth-First Search (DFS)
+
+**Description**: Depth-First Search (DFS) is an algorithm for traversing or searching tree or graph data structures. The algorithm starts at the root node (selecting some arbitrary node as the root in the case of a graph) and explores as far as possible along each branch before backtracking.
+
+**Strengths**:
+- Simple to implement.
+- Can be used to detect cycles in a graph.
+
+**Weaknesses**:
+- Can get stuck in deep branches if the graph is very deep.
+
+**Time Complexity**:
+- Best Case: O(V + E)
+- Average Case: O(V + E)
+- Worst Case: O(V + E)
+
+**Space Complexity**: O(V) due to the recursion stack.
+
+#### Breadth-First Search (BFS)
+
+**Description**: Breadth-First Search (BFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the root (or any arbitrary node) and explores the neighbor nodes at the present depth prior to moving on to nodes at the next depth level.
+
+**Strengths**:
+- Simple to implement.
+- Finds the shortest path in an unweighted graph.
+
+**Weaknesses**:
+- Requires more memory compared to DFS.
+
+**Time Complexity**:
+- Best Case: O(V + E)
+- Average Case: O(V + E)
+- Worst Case: O(V + E)
+
+**Space Complexity**: O(V) due to the queue.
+
 ### How to Compile and Run
 
 #### Sorting Algorithms
@@ -198,7 +238,7 @@ This repository is used to store my codes for learning data structures and algor
 1. **Compile**
 
    ```bash
-   gcc -o test_search_algorithms src/search/test_search_algorithms.c src/search/linear_search.c src/search/binary_search.c src/search/jump_search.c
+   gcc -o test_search_algorithms src/search/test_search_algorithms.c src/search/linear_search.c src/search/binary_search.c src/search/jump_search.c src/search/depth_first_search.c src/search/breadth_first_search.c src/search/graph_utils.c -lm
    ```
 
 2. **Run**

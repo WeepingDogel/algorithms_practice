@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "graph_utils.h"
 
 // Function declarations for search algorithms
 int linear_search(int low, int high, int target);
 int binary_search(int low, int high, int target);
 int jump_search(int arr[], int n, int target);
+void DFS(int vertex, int numVertices);
+void BFS(int startVertex, int numVertices);
 
 // Function to generate a sorted array with sequential values
 void generateSortedArray(int arr[], int size) {
@@ -50,6 +53,24 @@ void measureJumpSearchTime(int (*searchFunc)(int[], int, int), int arr[], int si
     printf("%s took %f seconds to find the target %d at index %d in an array of size %d.\n", searchName, timeTaken, target, index, size);
 }
 
+// Function to measure the time taken by DFS and BFS
+void measureGraphSearchTime(void (*searchFunc)(int, int), int numVertices, const char* searchName) {
+    // Record the start time
+    clock_t start = clock();
+    
+    // Call the search function
+    searchFunc(0, numVertices);
+    
+    // Record the end time
+    clock_t end = clock();
+
+    // Calculate the time taken in seconds
+    double timeTaken = ((double)(end - start)) / CLOCKS_PER_SEC;
+    
+    // Print the results
+    printf("%s took %f seconds to traverse the graph with %d vertices.\n", searchName, timeTaken, numVertices);
+}
+
 // Main function to test the search algorithms
 int main() {
     // Seed the random number generator
@@ -87,6 +108,35 @@ int main() {
         free(arr);
         printf("\n");
     }
+
+    // Graph search tests
+    int numVertices = 6;
+
+    // Initialize the adjacency matrix and visited array
+    for (int i = 0; i < numVertices; i++) {
+        for (int j = 0; j < numVertices; j++) {
+            adjMatrix[i][j] = 0;
+        }
+        visited[i] = 0;
+    }
+
+    // Add edges to the graph
+    addEdge(0, 1);
+    addEdge(0, 2);
+    addEdge(1, 3);
+    addEdge(1, 4);
+    addEdge(2, 5);
+
+    // Measure the time taken by DFS
+    measureGraphSearchTime(DFS, numVertices, "Depth-First Search (DFS)");
+
+    // Reset the visited array
+    for (int i = 0; i < numVertices; i++) {
+        visited[i] = 0;
+    }
+
+    // Measure the time taken by BFS
+    measureGraphSearchTime(BFS, numVertices, "Breadth-First Search (BFS)");
 
     return 0;
 }

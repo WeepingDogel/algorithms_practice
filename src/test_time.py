@@ -23,7 +23,10 @@ c_programs = [
             "src/search/test_search_algorithms.c",
             "src/search/linear_search.c",
             "src/search/binary_search.c",
-            "src/search/jump_search.c"
+            "src/search/jump_search.c",
+            "src/search/depth_first_search.c",
+            "src/search/breadth_first_search.c",
+            "src/search/graph_utils.c"
         ],
         "link_flags": "-lm"  # Add the math library link flag
     }
