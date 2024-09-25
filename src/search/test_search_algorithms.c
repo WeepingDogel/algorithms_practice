@@ -5,6 +5,7 @@
 // Function declarations for search algorithms
 int linear_search(int low, int high, int target);
 int binary_search(int low, int high, int target);
+int jump_search(int arr[], int n, int target);
 
 // Function to generate a sorted array with sequential values
 void generateSortedArray(int arr[], int size) {
@@ -29,6 +30,24 @@ void measureTime(int (*searchFunc)(int, int, int), int arr[], int size, int targ
     
     // Print the results
     printf("%s took %f seconds and %d guesses to find the target %d in an array of size %d.\n", searchName, timeTaken, guesses, target, size);
+}
+
+// Function to measure the time taken by Jump Search
+void measureJumpSearchTime(int (*searchFunc)(int[], int, int), int arr[], int size, int target, const char* searchName) {
+    // Record the start time
+    clock_t start = clock();
+    
+    // Call the search function and get the index
+    int index = searchFunc(arr, size, target);
+    
+    // Record the end time
+    clock_t end = clock();
+
+    // Calculate the time taken in seconds
+    double timeTaken = ((double)(end - start)) / CLOCKS_PER_SEC;
+    
+    // Print the results
+    printf("%s took %f seconds to find the target %d at index %d in an array of size %d.\n", searchName, timeTaken, target, index, size);
 }
 
 // Main function to test the search algorithms
@@ -60,6 +79,9 @@ int main() {
         
         // Measure the time taken by Binary Search
         measureTime(binary_search, arr, size, target, "Binary Search");
+
+        // Measure the time taken by Jump Search
+        measureJumpSearchTime(jump_search, arr, size, target, "Jump Search");
 
         // Free the allocated memory
         free(arr);

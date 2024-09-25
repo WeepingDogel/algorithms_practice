@@ -7,6 +7,8 @@
 void quickSort(int arr[], int low, int high);
 void insertionSort(int arr[], int n);
 void mergeSort(int arr[], int left, int right);
+void bubbleSort(int arr[], int n);
+void selectionSort(int arr[], int n);
 
 // Function to generate an array with random values
 void generateRandomArray(int arr[], int size) {
@@ -42,6 +44,16 @@ void insertionSortWrapper(int arr[], int low, int high) {
     insertionSort(arr, high + 1);
 }
 
+// Wrapper function for bubble sort to match the signature
+void bubbleSortWrapper(int arr[], int low, int high) {
+    bubbleSort(arr, high + 1);
+}
+
+// Wrapper function for selection sort to match the signature
+void selectionSortWrapper(int arr[], int low, int high) {
+    selectionSort(arr, high + 1);
+}
+
 // Main function to test the sorting algorithms
 int main() {
     srand(time(NULL));
@@ -59,6 +71,8 @@ int main() {
         measureTime(quickSort, arr, size, "Quick Sort");
         measureTime(insertionSortWrapper, arr, size, "Insertion Sort");
         measureTime(mergeSort, arr, size, "Merge Sort");
+        measureTime(bubbleSortWrapper, arr, size, "Bubble Sort");
+        measureTime(selectionSortWrapper, arr, size, "Selection Sort");
 
         free(arr);
         printf("\n");

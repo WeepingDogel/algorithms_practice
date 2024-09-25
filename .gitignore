@@ -1,2 +1,6 @@
 output
 *.txt
+
+test_sorting_algorithms
+test_search_algorithms
+execution_duration_log.txt
