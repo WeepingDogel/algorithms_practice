@@ -1,8 +1,10 @@
 output
 *.txt
+*.out
 
 test_sorting_algorithms
 test_search_algorithms
 depth_first_search
 breadth_first_search
 execution_duration_log.txt
+tmp
