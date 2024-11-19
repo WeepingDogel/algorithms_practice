@@ -3,7 +3,9 @@ Binary Search
 
 This program implements the binary search algorithm, which is an efficient method for finding an item from a sorted list of items.
 
-The binary search algorithm works by repeatedly dividing the search interval in half. If the value of the search key is less than the item in the middle of the interval, narrow the interval to the lower half. Otherwise, narrow it to the upper half. Repeatedly check until the value is found or the interval is empty.
+The binary search algorithm works by repeatedly dividing the search interval in half. 
+If the value of the search key is less than the item in the middle of the interval, narrow the interval to the lower half. 
+Otherwise, narrow it to the upper half. Repeatedly check until the value is found or the interval is empty.
 
 The main components of the code are as follows:
 

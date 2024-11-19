@@ -52,14 +52,31 @@ void insertAtBeginning(struct Node** head, int data) {
 
 /*TODO: Implement a function to reverse the linked list*/
 void reverseList(struct Node** head) {
-
+    struct Node* prev = NULL;
+    struct Node* current = *head;
+    struct Node* next = NULL;
+    while (current != NULL) {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    *head = prev;
 }
 
 int main() {
     struct Node* head = NULL;
     /*TODO: Add nodes to the linked list*/
-
+    insertAtBeginning(&head, 1);
+    insertAtBeginning(&head, 2);
+    insertAtBeginning(&head, 3);
+    insertAtBeginning(&head, 4);
+    insertAtBeginning(&head, 5);
+    printf("Original list: ");
+    printList(head);
     /*TODO: Call the reverse function*/
-
+    reverseList(&head);
+    printf("Reversed list: ");
+    printList(head);
     return 0;
 }
