@@ -18,6 +18,7 @@ Tips:
     "struct" is a keyword that is used to define a new data type, 
     which is a collection of variables of different data types.
 */
+
 struct Stack {
     int data;
     struct Stack* next;
